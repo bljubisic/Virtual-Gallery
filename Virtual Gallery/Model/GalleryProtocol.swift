@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol GalleryModel: class {
     
-    func getImagesFor(_ criterium: Criterium) -> [Image];
+    func getImagesFor(_ criterium: Criterium) -> Variable<[Image]>;
     
 }
