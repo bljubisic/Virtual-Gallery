@@ -94,9 +94,23 @@ struct Platform {
 
 extension Platform {
     init() {
-        name = ""
-        homeURL = ""
+        name        = ""
+        homeURL     = ""
         haveAccount = false
+    }
+}
+
+struct Login {
+    let username: String
+    let password: String
+    let token: String
+}
+
+extension Login {
+    init() {
+        username = ""
+        password = ""
+        token    = ""
     }
 }
 
