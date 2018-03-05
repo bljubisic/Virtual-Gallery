@@ -9,16 +9,15 @@
 import Foundation
 import RxSwift
 
-protocol GalleryModel: class {
+protocol GalleryModel {
     
-    init(WithPlatform platform: Platform)
+    init(WithConfiguration configuration: Configuration)
     
-    func connect(WithLogin login: Login) -> Bool
+    func setCriterium(_ criterium: Criterium) -> Bool
     
-    func getImages(ForCriterium criterium: Criterium) -> Variable<[Image]>
+    func getCentralImages(WithLimit limit: Int) -> Variable<[Image]>
     
-    func getPlatform() -> Platform
+    func getFuzzyImages(WithLimit limit: Int) -> Variable<[Image]>
     
-    func isLoggedIn(WithLogin login: Login) -> Bool
     
 }
