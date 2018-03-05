@@ -114,3 +114,7 @@ extension Login {
     }
 }
 
+typealias Configuration = [String: String]
+
+let configuration: Configuration = Configuration()
+
