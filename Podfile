@@ -6,12 +6,14 @@ target 'Virtual Gallery' do
     pod 'SnapKit', '~> 4.0.0'
     pod 'RxSwift', '~> 4.0'
     pod 'RxCocoa', '~> 4.0'
+    pod 'Alamofire', '~> 4.7'
 end
 
 target 'Virtual GalleryTests' do
     pod 'SnapKit', '~> 4.0.0'
     pod 'RxSwift', '~> 4.0'  
     pod 'RxCocoa', '~> 4.0'
+    pod 'Alamofire', '~> 4.7'
 end
 
 post_install do |installer|
