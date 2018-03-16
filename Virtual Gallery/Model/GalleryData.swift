@@ -114,7 +114,41 @@ extension Login {
     }
 }
 
-typealias Configuration = [String: String]
+struct Credentials {
+    let name: String
+    let username: String
+    let password: String
+    let url: String
+    let token: String
+}
+extension Credentials {
+    init() {
+        name = ""
+        username = ""
+        password = ""
+        url = ""
+        token = ""
+    }
+}
 
-let configuration: Configuration = Configuration()
+struct PlatformConfig {
+    let name: String
+    let url: String
+    let enabled: Bool
+    let login: Bool
+    let consumerKey: String
+    let credentials: Credentials
+}
+
+struct Configuration {
+    let platforms: [PlatformConfig]
+    
+}
+
+extension Configuration {
+    init() {
+        let px500 = PlatformConfig(name: "500px", url: "", enabled: true, login: false, consumerKey: "", credentials: Credentials())
+        platforms = [px500]
+    }
+}
 
