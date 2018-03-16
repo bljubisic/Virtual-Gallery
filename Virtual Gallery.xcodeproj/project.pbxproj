@@ -10,6 +10,8 @@
 		06C3126D0CB3CD7E856271E8 /* Pods_Virtual_Gallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F3F1CB71D9A5C29C9285F75B /* Pods_Virtual_Gallery.framework */; };
 		0B5FB7D5201B2B02000E110C /* GalleryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5FB7D4201B2B02000E110C /* GalleryData.swift */; };
 		0BA2BBBA204A854800B1CFDB /* GalleryPlatformModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA2BBB9204A854800B1CFDB /* GalleryPlatformModel.swift */; };
+		0BA2BBBC2052E05500B1CFDB /* EnvironmentProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA2BBBB2052E05500B1CFDB /* EnvironmentProtocol.swift */; };
+		0BA2BBBE2052E16300B1CFDB /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA2BBBD2052E16300B1CFDB /* Environment.swift */; };
 		0BAA72DD2030D75100C666C7 /* GalleryViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAA72DC2030D75100C666C7 /* GalleryViewModelProtocol.swift */; };
 		0BAA72DE2030D77B00C666C7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0BDF96CF2017C317009D45D5 /* Info.plist */; };
 		0BBBD365203072BD00619421 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBBD368203072BD00619421 /* RxCocoa.framework */; };
@@ -59,6 +61,8 @@
 /* Begin PBXFileReference section */
 		0B5FB7D4201B2B02000E110C /* GalleryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryData.swift; sourceTree = "<group>"; };
 		0BA2BBB9204A854800B1CFDB /* GalleryPlatformModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPlatformModel.swift; sourceTree = "<group>"; };
+		0BA2BBBB2052E05500B1CFDB /* EnvironmentProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentProtocol.swift; sourceTree = "<group>"; };
+		0BA2BBBD2052E16300B1CFDB /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		0BAA72DC2030D75100C666C7 /* GalleryViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelProtocol.swift; sourceTree = "<group>"; };
 		0BBBD368203072BD00619421 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBBD369203072BD00619421 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -184,6 +188,8 @@
 				0BDF96F42017C4A2009D45D5 /* GalleryProtocol.swift */,
 				0B5FB7D4201B2B02000E110C /* GalleryData.swift */,
 				0BA2BBB9204A854800B1CFDB /* GalleryPlatformModel.swift */,
+				0BA2BBBB2052E05500B1CFDB /* EnvironmentProtocol.swift */,
+				0BA2BBBD2052E16300B1CFDB /* Environment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -397,12 +403,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Virtual GalleryTests/Pods-Virtual GalleryTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -452,12 +460,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Virtual Gallery/Pods-Virtual Gallery-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -475,6 +485,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BDF96C62017C317009D45D5 /* ViewController.swift in Sources */,
+				0BA2BBBE2052E16300B1CFDB /* Environment.swift in Sources */,
+				0BA2BBBC2052E05500B1CFDB /* EnvironmentProtocol.swift in Sources */,
 				0BDF96F52017C4A2009D45D5 /* GalleryProtocol.swift in Sources */,
 				0B5FB7D5201B2B02000E110C /* GalleryData.swift in Sources */,
 				0BA2BBBA204A854800B1CFDB /* GalleryPlatformModel.swift in Sources */,
