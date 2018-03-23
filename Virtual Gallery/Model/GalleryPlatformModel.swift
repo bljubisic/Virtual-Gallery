@@ -11,13 +11,13 @@ import RxSwift
 
 protocol GalleryPlatformModel: class {
     
-    init(WithPlatform platform: Platform)
+    init(WithPlatform platform: PlatformConfig)
     
     func connect(WithLogin login: Login) -> Bool
     
     func getImages(ForCriterium criterium: Criterium) -> Variable<[Image]>
     
-    func getPlatform() -> Platform
+    func getPlatform() -> PlatformConfig?
     
     func isLoggedIn(WithLogin login: Login) -> Bool
     
