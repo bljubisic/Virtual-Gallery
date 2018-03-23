@@ -10,8 +10,16 @@ import Foundation
 import RxSwift
 
 class GalleryViewModel: GalleryViewModelProtocol {
+    
+    let model: GalleryModelProtocol
+    
+    required init(withModel model: GalleryModelProtocol) {
+        self.model = model
+    }
+    
     func getImagesForCentralLine(forCriterium criteria: Criterium) -> Observable<[Image]> {
-        
+        let centralLine = model.getCentralImages(WithLimit: 10).asObservable()
+        return centralLine
     }
     
     
