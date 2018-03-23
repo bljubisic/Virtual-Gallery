@@ -9,11 +9,21 @@
 import Foundation
 
 class Environment: EnvironmentModel {
-    var currentConfiguration: Configuration = Configuration()
     
-    func create(Configuration config: Configuration) -> Bool {
-        currentConfiguration = config
-        return true
+    var currentConfiguration: Configuration?
+    var currentEnvironment: EnvironmentModel = Environment()
+    
+    static func create(Configuration config: Configuration) -> EnvironmentModel {
+        
+        let environment = Environment()
+        
+        environment.currentConfiguration = config
+        environment.currentEnvironment = environment
+        return environment
+    }
+    
+    private init() {
+        
     }
     
     
