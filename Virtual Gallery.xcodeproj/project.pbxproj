@@ -17,6 +17,7 @@
 		0BBBD365203072BD00619421 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBBD368203072BD00619421 /* RxCocoa.framework */; };
 		0BBBD366203072BD00619421 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBBD369203072BD00619421 /* RxSwift.framework */; };
 		0BBBD367203072BD00619421 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BBBD36A203072BD00619421 /* SnapKit.framework */; };
+		0BCF3F98205FE2B500B1FE6D /* PxPlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCF3F97205FE2B500B1FE6D /* PxPlatform.swift */; };
 		0BDF96C42017C317009D45D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF96C32017C317009D45D5 /* AppDelegate.swift */; };
 		0BDF96C62017C317009D45D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF96C52017C317009D45D5 /* ViewController.swift */; };
 		0BDF96C92017C317009D45D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BDF96C72017C317009D45D5 /* Main.storyboard */; };
@@ -67,6 +68,7 @@
 		0BBBD368203072BD00619421 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBBD369203072BD00619421 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BBBD36A203072BD00619421 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BCF3F97205FE2B500B1FE6D /* PxPlatform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PxPlatform.swift; sourceTree = "<group>"; };
 		0BDF96C02017C317009D45D5 /* Virtual Gallery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Virtual Gallery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BDF96C32017C317009D45D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BDF96C52017C317009D45D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				0BA2BBB9204A854800B1CFDB /* GalleryPlatformModel.swift */,
 				0BA2BBBB2052E05500B1CFDB /* EnvironmentProtocol.swift */,
 				0BA2BBBD2052E16300B1CFDB /* Environment.swift */,
+				0BCF3F97205FE2B500B1FE6D /* PxPlatform.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -414,6 +418,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -464,6 +469,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -471,6 +477,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -491,6 +498,7 @@
 				0B5FB7D5201B2B02000E110C /* GalleryData.swift in Sources */,
 				0BA2BBBA204A854800B1CFDB /* GalleryPlatformModel.swift in Sources */,
 				0BAA72DD2030D75100C666C7 /* GalleryViewModelProtocol.swift in Sources */,
+				0BCF3F98205FE2B500B1FE6D /* PxPlatform.swift in Sources */,
 				0BDF96C42017C317009D45D5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
