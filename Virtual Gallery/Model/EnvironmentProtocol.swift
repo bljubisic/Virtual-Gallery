@@ -10,8 +10,9 @@ import Foundation
 
 protocol EnvironmentModel {
     
-    var currentConfiguration: Configuration { get set }
+    var currentConfiguration: Configuration? { get set }
+    var currentEnvironment: EnvironmentModel { get set }
     
-    func create(Configuration config: Configuration) -> Bool
+    static func create(Configuration config: Configuration) -> EnvironmentModel
     
 }
