@@ -27,6 +27,9 @@
 		0BDF96E42017C317009D45D5 /* Virtual_GalleryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF96E32017C317009D45D5 /* Virtual_GalleryUITests.swift */; };
 		0BDF96F52017C4A2009D45D5 /* GalleryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDF96F42017C4A2009D45D5 /* GalleryProtocol.swift */; };
 		C900DF109B6AA4BC83812ADD /* Pods_Virtual_GalleryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 868D87F743174CD0FDE6C861 /* Pods_Virtual_GalleryTests.framework */; };
+		E45CF64120659CCC00F3682F /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45CF64220659CCC00F3682F /* Alamofire.framework */; };
+		E45CF64320659CD300F3682F /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E45CF64420659CD300F3682F /* SwiftyJSON.framework */; };
+		E45CF64620659E2100F3682F /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E45CF64520659E2100F3682F /* GalleryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		868D87F743174CD0FDE6C861 /* Pods_Virtual_GalleryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_GalleryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEA728614A24ECB69D380B48 /* Pods-Virtual Gallery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Gallery.release.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Gallery/Pods-Virtual Gallery.release.xcconfig"; sourceTree = "<group>"; };
 		D99B317DCE561F3D40E2BFB5 /* Pods-Virtual Gallery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Virtual Gallery.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Virtual Gallery/Pods-Virtual Gallery.debug.xcconfig"; sourceTree = "<group>"; };
+		E45CF64220659CCC00F3682F /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E45CF64420659CD300F3682F /* SwiftyJSON.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftyJSON.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E45CF64520659E2100F3682F /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
 		F3F1CB71D9A5C29C9285F75B /* Pods_Virtual_Gallery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Virtual_Gallery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -96,6 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E45CF64320659CD300F3682F /* SwiftyJSON.framework in Frameworks */,
+				E45CF64120659CCC00F3682F /* Alamofire.framework in Frameworks */,
 				0BBBD365203072BD00619421 /* RxCocoa.framework in Frameworks */,
 				0BBBD366203072BD00619421 /* RxSwift.framework in Frameworks */,
 				0BBBD367203072BD00619421 /* SnapKit.framework in Frameworks */,
@@ -201,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				0BAA72DC2030D75100C666C7 /* GalleryViewModelProtocol.swift */,
+				E45CF64520659E2100F3682F /* GalleryViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,6 +228,8 @@
 		33E25994C711D90546542B56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E45CF64420659CD300F3682F /* SwiftyJSON.framework */,
+				E45CF64220659CCC00F3682F /* Alamofire.framework */,
 				0BBBD368203072BD00619421 /* RxCocoa.framework */,
 				0BBBD369203072BD00619421 /* RxSwift.framework */,
 				0BBBD36A203072BD00619421 /* SnapKit.framework */,
@@ -492,6 +503,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0BDF96C62017C317009D45D5 /* ViewController.swift in Sources */,
+				E45CF64620659E2100F3682F /* GalleryViewModel.swift in Sources */,
 				0BA2BBBE2052E16300B1CFDB /* Environment.swift in Sources */,
 				0BA2BBBC2052E05500B1CFDB /* EnvironmentProtocol.swift in Sources */,
 				0BDF96F52017C4A2009D45D5 /* GalleryProtocol.swift in Sources */,
