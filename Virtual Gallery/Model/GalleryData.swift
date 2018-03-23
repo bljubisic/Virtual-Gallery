@@ -131,13 +131,26 @@ extension Credentials {
     }
 }
 
+struct Endpoint {
+    let name: String
+    let parameters: [String:String]
+}
+
 struct PlatformConfig {
     let name: String
     let url: String
     let enabled: Bool
     let login: Bool
     let consumerKey: String
+    let consumerSecret: String
     let credentials: Credentials
+    let endpoints: [Endpoint]
+    
+    func getEndpoint(WithName name: String) -> Endpoint? {
+        return endpoints.filter({ (endpoint) -> Bool in
+            return endpoint.name == name
+        }).first
+    }
 }
 
 struct Configuration {
@@ -147,7 +160,7 @@ struct Configuration {
 
 extension Configuration {
     init() {
-        let px500 = PlatformConfig(name: "500px", url: "", enabled: true, login: false, consumerKey: "", credentials: Credentials())
+        let px500 = PlatformConfig(name: "500px", url: "https://api.500px.com/v1/", enabled: true, login: false, consumerKey: "bJIWpSFuD1lhcEzdl1Iss452mNEq4LbMEIWxV9F4", consumerSecret: "0gux5pA3HanYTr8K78KQ9pPydNvJ12Sy0rSbpypL", credentials: Credentials(), endpoints:[ Endpoint(name: "photos", parameters: ["feature":"popular", "sort":"created_at", "image_size":"2,4", "rpp":"10"])])
         platforms = [px500]
     }
 }
