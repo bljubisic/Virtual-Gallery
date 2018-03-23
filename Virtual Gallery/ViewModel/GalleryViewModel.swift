@@ -20,6 +20,7 @@ class GalleryViewModel: GalleryViewModelProtocol {
     func getImagesForCentralLine(forCriterium criteria: Criterium) -> Observable<[Image]> {
         let centralLine = model.getCentralImages(WithLimit: 10).asObservable()
         return centralLine
+        
     }
     
     
