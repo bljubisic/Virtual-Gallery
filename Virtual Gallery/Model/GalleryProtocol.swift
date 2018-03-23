@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol GalleryModel {
+protocol GalleryModelProtocol: class {
     
     init(WithConfiguration configuration: Configuration)
     
