@@ -7,7 +7,11 @@
 //
 
 import Foundation
+import RxSwift
 
-protocol GalleryViewModel: class {
+protocol GalleryViewModelProtocol: class {
+    
+    func getImagesForCentralLine(forCriterium criteria:Criterium) -> Observable<[Image]>
+    
     
 }
