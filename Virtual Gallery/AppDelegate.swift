@@ -15,7 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let environment = Environment()
+        let config = Configuration()
+        let environment = Environment.create(Configuration: config)
+        
         
         
         return true
