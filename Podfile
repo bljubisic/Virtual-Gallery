@@ -7,6 +7,7 @@ target 'Virtual Gallery' do
     pod 'RxSwift', '~> 4.0'
     pod 'RxCocoa', '~> 4.0'
     pod 'Alamofire', '~> 4.7'
+    pod 'SwiftyJSON'
 end
 
 target 'Virtual GalleryTests' do
@@ -14,6 +15,7 @@ target 'Virtual GalleryTests' do
     pod 'RxSwift', '~> 4.0'  
     pod 'RxCocoa', '~> 4.0'
     pod 'Alamofire', '~> 4.7'
+    pod 'SwiftyJSON'
 end
 
 post_install do |installer|
