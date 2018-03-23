@@ -11,6 +11,10 @@ import RxSwift
 
 protocol GalleryViewModelProtocol: class {
     
+    var model: GalleryModelProtocol { get }
+    
+    init(withModel model:GalleryModelProtocol)
+    
     func getImagesForCentralLine(forCriterium criteria:Criterium) -> Observable<[Image]>
     
     
