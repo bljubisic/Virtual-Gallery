@@ -12,14 +12,12 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    var currentEnvironment: EnvironmentModel?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let config = Configuration()
-        let environment = Environment.create(Configuration: config)
-        
-        
-        
+        currentEnvironment = Environment.create(Configuration: config)
+
         return true
     }
 

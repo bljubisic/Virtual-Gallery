@@ -10,20 +10,20 @@ import Foundation
 
 class Environment: EnvironmentModel {
     
-    var currentConfiguration: Configuration?
-    var currentEnvironment: EnvironmentModel = Environment()
+    var currentConfiguration: Configuration
+    var galleryModel: GalleryModelProtocol
     
     static func create(Configuration config: Configuration) -> EnvironmentModel {
-        
         let environment = Environment()
         
         environment.currentConfiguration = config
-        environment.currentEnvironment = environment
+        environment.galleryModel = GalleryModel(WithConfiguration: environment.currentConfiguration)
         return environment
     }
     
     private init() {
-        
+        currentConfiguration = Configuration()
+        galleryModel = GalleryModel(WithConfiguration: currentConfiguration)
     }
     
     
