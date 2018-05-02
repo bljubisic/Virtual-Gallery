@@ -15,9 +15,10 @@ protocol GalleryModelProtocol: class {
     
     func setCriterium(_ criterium: Criterium) -> Bool
     
-    func getCentralImages(WithLimit limit: Int) -> Observable<[Image]>
+    func getCentralImages(WithLimit limit: Int) -> Observable<Image>
     
-    func getFuzzyImages(WithLimit limit: Int) -> Observable<[Image]>
+    func getFuzzyImages(WithLimit limit: Int) -> Observable<Image>
     
+    func downloadImageFrom(URL url: String) -> Observable<Data>
     
 }
