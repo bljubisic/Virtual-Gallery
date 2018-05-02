@@ -257,7 +257,6 @@
 				0BDF96BD2017C317009D45D5 /* Frameworks */,
 				0BDF96BE2017C317009D45D5 /* Resources */,
 				F0DA0C0229812BDA9DDC2D4A /* [CP] Embed Pods Frameworks */,
-				36BC2176A66F0F60FA987C9F /* [CP] Copy Pods Resources */,
 				0BBBD35E2030728F00619421 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -278,7 +277,6 @@
 				0BDF96D12017C317009D45D5 /* Frameworks */,
 				0BDF96D22017C317009D45D5 /* Resources */,
 				2DD2ABD9DEBB56BBB3403378 /* [CP] Embed Pods Frameworks */,
-				0FF9421052F7DBAD35F3E467 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -383,21 +381,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0FF9421052F7DBAD35F3E467 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Virtual GalleryTests/Pods-Virtual GalleryTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		16747AD4D041A2AF5384440A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -440,21 +423,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Virtual GalleryTests/Pods-Virtual GalleryTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		36BC2176A66F0F60FA987C9F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Virtual Gallery/Pods-Virtual Gallery-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0861D76FADF9CF1586EF8F9 /* [CP] Check Pods Manifest.lock */ = {
