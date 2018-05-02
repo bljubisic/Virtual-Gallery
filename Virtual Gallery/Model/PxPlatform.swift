@@ -15,6 +15,8 @@ class PxPlatform: GalleryPlatformModel {
     
     private var platformConfig: PlatformConfig?
     
+    var imagesSignal: Variable<Image> = Variable<Image>(Image())
+    
     private let bag = DisposeBag()
     
     required init(WithPlatform platform: PlatformConfig) {
@@ -30,11 +32,10 @@ class PxPlatform: GalleryPlatformModel {
         return true
     }
     
-    func getImages(ForCriterium criterium: Criterium) -> Variable<[Image]> {
-        let images = Variable<[Image]>([])
+    func getImages(ForCriterium criterium: Criterium) -> Observable<Image> {
         guard let platformConfig = self.platformConfig, let endpoint = platformConfig.getEndpoint(WithName: "photos"),
-            var urlComponent = URLComponents(string: platformConfig.url + endpoint.name) else {
-            return images
+            var urlComponent = URLComponents(string: platformConfig.url + endpoint.name.rawValue) else {
+            return Observable<Image>.empty()
         }
         
         urlComponent.queryItems = endpoint.parameters.map({ (key, value) -> URLQueryItem in
@@ -49,43 +50,58 @@ class PxPlatform: GalleryPlatformModel {
             
             let photosJSON = JSON(jsonResponse)
             let photos = photosJSON["photos"].arrayValue
-            images.value = photos.map({ (photo) -> Image in
+            _ = photos.map({ (photo) -> Image in
                 let name = photo["name"].stringValue
                 let largeURL = photo["image_url"].arrayValue[1].stringValue
                 let thumbURL = photo["image_url"].arrayValue[0].stringValue
                 let description = photo["description"].stringValue
                 let url = "https://500px.com/photos/" + photo["id"].stringValue
-                
+                    
                 let dateFormatter = DateFormatter()
                 dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                 dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
                 let date =  dateFormatter.date(from:photo["created_at"].stringValue)
                 let calendar = Calendar.current
                 let year = calendar.component(.year, from: date!)
-                
+                    
                 let user = photo["user"]
                 let username = user["username"].stringValue
                 let firstname = user["firstname"].stringValue
                 let lastname = user["lastname"].stringValue
                 let avatar = user["userpis_url"].stringValue
                 let userURL = "https://500px.com/\(username)/"
-                
+                    
                 let author = Author(username: username, firstName: firstname, lastName: lastname, avatar: avatar, url: userURL)
-                
-                let platform = Platform(name: "500px", homeURL: "https://500px.com/", haveAccount: false)
-                
+                    
+                let platform = Platform(name: .px, homeURL: "https://500px.com/", haveAccount: false)
+                    
                 let comments = photo["comments"].arrayValue.map{ (json) -> String in
                     return json.stringValue
                 }
-                
-                return Image(name: name, largeURL: largeURL, thumbURL: thumbURL, description: description, url: url, year: year, exif: Exif(), author: author, comments: comments, platform: platform)
+                    
+                let image = Image(name: name, largeURL: largeURL, thumbURL: thumbURL, description: description, url: url, year: year, exif: Exif(), author: author, comments: comments, platform: platform)
+                self.imagesSignal.value = image
+                return image
             })
+
         }
-        return images
+        return self.imagesSignal.asObservable()
     }
     
     func isLoggedIn(WithLogin login: Login) -> Bool {
         return false
+    }
+    
+    func downloadImageFor(URL url: String) -> Observable<Data> {
+        let dataObservable = Variable<Data>(Data())
+        Alamofire.request(url).responseData { (response) in
+            
+            guard let data = response.data else {
+                return
+            }
+            dataObservable.value = data
+        }
+        return dataObservable.asObservable()
     }
     
     
