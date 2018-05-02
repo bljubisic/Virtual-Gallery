@@ -17,7 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let config = Configuration()
         currentEnvironment = Environment.create(Configuration: config)
-
+        let galleryViewModel = GalleryViewModel(withModel: (currentEnvironment?.galleryModel)!) 
+        window = UIWindow(frame: UIScreen.main.bounds)
+        let mainViewController = MainViewController()
+        
+        mainViewController.viewModel = galleryViewModel
+        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
+        window?.makeKeyAndVisible()
         return true
     }
 
