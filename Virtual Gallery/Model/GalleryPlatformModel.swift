@@ -11,11 +11,15 @@ import RxSwift
 
 protocol GalleryPlatformModel: class {
     
+    var imagesSignal: Variable<Image> { get }
+    
     init(WithPlatform platform: PlatformConfig)
     
     func connect(WithLogin login: Login) -> Bool
     
-    func getImages(ForCriterium criterium: Criterium) -> Variable<[Image]>
+    func getImages(ForCriterium criterium: Criterium) -> Observable<Image>
+    
+    func downloadImageFor(URL url: String) -> Observable<Data>
     
     func getPlatform() -> PlatformConfig?
     
