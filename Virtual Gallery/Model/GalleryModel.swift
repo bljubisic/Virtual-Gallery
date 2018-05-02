@@ -10,6 +10,8 @@ import Foundation
 import RxSwift
 
 class GalleryModel: GalleryModelProtocol {
+
+    
     
     private var currentConfiguration: Configuration
     private var currentCriterium: Criterium
@@ -28,22 +30,25 @@ class GalleryModel: GalleryModelProtocol {
         return true
     }
     
-    func getCentralImages(WithLimit limit: Int) -> Observable<[Image]> {
+    func getCentralImages(WithLimit limit: Int) -> Observable<Image> {
         // go through configuration and get all defined platforms.
         // Subscribe to each Variable from them
         // If more than 1 connect all of them using combineWithLatest
         // Resulted observable return as Variable
-        return pxModel.getImages(ForCriterium: currentCriterium).asObservable()
+        return pxModel.getImages(ForCriterium: currentCriterium)
         
     }
     
-    func getFuzzyImages(WithLimit limit: Int) -> Observable<[Image]> {
+    func getFuzzyImages(WithLimit limit: Int) -> Observable<Image> {
         // go through configuration and get all defined platforms.
         // Subscribe to each Variable from them
         // If more than 1 connect all of them using combineWithLatest
         // Resulted observable return as Variable
-        return pxModel.getImages(ForCriterium: currentCriterium).asObservable()
+        return pxModel.getImages(ForCriterium: currentCriterium)
     }
     
+    func downloadImageFrom(URL url: String) -> Observable<Data> {
+        return pxModel.downloadImageFor(URL: url).asObservable()
+    }
     
 }
