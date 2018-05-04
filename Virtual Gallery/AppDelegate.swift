@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mainViewController = MainViewController()
         
         mainViewController.viewModel = galleryViewModel
-        window?.rootViewController = UINavigationController(rootViewController: mainViewController)
+        window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         return true
     }
