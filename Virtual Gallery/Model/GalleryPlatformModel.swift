@@ -19,6 +19,8 @@ protocol GalleryPlatformModel: class {
     
     func getImages(ForCriterium criterium: Criterium) -> Observable<Image>
     
+    func getFuzzyImages(ForTags tags: [String]) -> Observable<Image>
+    
     func downloadImageFor(URL url: String) -> Observable<Data>
     
     func getPlatform() -> PlatformConfig?
