@@ -39,12 +39,12 @@ class GalleryModel: GalleryModelProtocol {
         
     }
     
-    func getFuzzyImages(WithLimit limit: Int) -> Observable<Image> {
+    func getFuzzyImages(WithTags tags: [String], AndWithLimit limit: Int) -> Observable<Image> {
         // go through configuration and get all defined platforms.
         // Subscribe to each Variable from them
         // If more than 1 connect all of them using combineWithLatest
         // Resulted observable return as Variable
-        return pxModel.getImages(ForCriterium: currentCriterium)
+        return pxModel.getFuzzyImages(ForTags: tags)
     }
     
     func downloadImageFrom(URL url: String) -> Observable<Data> {
