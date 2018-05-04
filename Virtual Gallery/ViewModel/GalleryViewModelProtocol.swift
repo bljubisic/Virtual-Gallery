@@ -19,6 +19,9 @@ protocol GalleryViewModelProtocol: class {
     init(withModel model:GalleryModelProtocol)
     
     func getImagesForCentralLine(forCriterium criteria:Criterium, andCompletion completion:@escaping ([Image]) -> Void) -> Void
+    func getFuzzyImages(forTags tags: [String], andCompletion completion:@escaping ([Image]) -> Void) -> Void
     
     func downloadDataFor(ImageURL url: String, withCompletion completion: @escaping(Data) -> Void)
+    
+    
 }
