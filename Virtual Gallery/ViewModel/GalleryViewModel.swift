@@ -47,6 +47,30 @@ class GalleryViewModel: GalleryViewModelProtocol {
         }.disposed(by: disposeBag)
     }
     
+    func getFuzzyImages(forTags tags: [String], andCompletion completion: @escaping ([Image]) -> Void) {
+        self.fuzzyImages = [Image] ()
+        var tmpFuzzyImages = [Image]()
+        
+        self.model.getFuzzyImages(WithTags: tags, AndWithLimit: 10).filter { (image) -> Bool in
+            return image.name != ""
+            }.map { (image) -> Image in
+                self.fuzzyImages.append(image)
+                print(image.name)
+                return image
+            }.take(6).subscribe(onNext: { (result) in
+                tmpFuzzyImages.append(result)
+            }, onError: { (Error) in
+            
+            }, onCompleted: {
+
+            }) {
+                print("!!!Completed fuzzy!!!")
+                if(tmpFuzzyImages.count >= 6) {
+                    completion(tmpFuzzyImages)
+                }
+        }.disposed(by: disposeBag)
+    }
+    
     func downloadDataFor(ImageURL url: String, withCompletion completion: @escaping (Data) -> Void) {
         self.model.downloadImageFrom(URL: url).filter { (data) -> Bool in
             return !data.isEmpty
@@ -60,4 +84,6 @@ class GalleryViewModel: GalleryViewModelProtocol {
             
             }.disposed(by: disposeBag)
     }
+    
+    
 }
