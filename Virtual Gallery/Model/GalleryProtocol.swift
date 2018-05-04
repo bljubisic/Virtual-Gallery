@@ -17,7 +17,7 @@ protocol GalleryModelProtocol: class {
     
     func getCentralImages(WithLimit limit: Int) -> Observable<Image>
     
-    func getFuzzyImages(WithLimit limit: Int) -> Observable<Image>
+    func getFuzzyImages(WithTags tags:[String], AndWithLimit limit: Int) -> Observable<Image>
     
     func downloadImageFrom(URL url: String) -> Observable<Data>
     
