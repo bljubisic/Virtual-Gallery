@@ -15,12 +15,15 @@ class PxPlatform: GalleryPlatformModel {
     
     private var platformConfig: PlatformConfig?
     
+    private var centralImages: [Image]!
+    
     var imagesSignal: Variable<Image> = Variable<Image>(Image())
     
     private let bag = DisposeBag()
     
     required init(WithPlatform platform: PlatformConfig) {
         platformConfig = platform
+        centralImages = [Image]()
     }
     
     func getPlatform() -> PlatformConfig? {
@@ -83,7 +86,17 @@ class PxPlatform: GalleryPlatformModel {
                 })
                     
                 let image = Image(name: name, largeURL: largeURL, thumbURL: thumbURL, description: description, url: url, year: year, exif: Exif(), author: author, comments: comments, tags: tags, platform: platform)
-                self.imagesSignal.value = image
+                
+                
+                if(!self.centralImages.contains(where: { (cenImage) -> Bool in
+                    return cenImage.name == image.name
+                })) {
+                    print("central: \(image.name)")
+                    if(self.centralImages.count < 3) {
+                        self.centralImages.append(image)
+                    }
+                    self.imagesSignal.value = image
+                }
                 return image
             })
 
@@ -147,14 +160,18 @@ class PxPlatform: GalleryPlatformModel {
                 })
                 
                 let image = Image(name: name, largeURL: largeURL, thumbURL: thumbURL, description: description, url: url, year: year, exif: Exif(), author: author, comments: comments, tags: tags, platform: platform)
-                foundImages.append(image)
+                if(!self.centralImages.contains(where: { (cenImage) -> Bool in
+                    return cenImage.name == image.name
+                })) {
+                    foundImages.append(image)
+                }
                 return image
             })
             
         }
         if(foundImages.count == 0) {
             var newTags = tags
-            if(newTags.count > 0) {
+            if(newTags.count > 1) {
                 _ = newTags.removeLast()
                 return self.getFuzzyImages(ForTags: newTags)
             }
@@ -163,7 +180,10 @@ class PxPlatform: GalleryPlatformModel {
             }
 
         }
-    
+        _ = foundImages.map({ (image) -> Image in
+            print("fuzzy: \(image.name)")
+            return image
+        })
         return Observable.from(foundImages)
     }
     
