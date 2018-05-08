@@ -35,6 +35,7 @@ class MainViewController: UIViewController {
         
         topLeft = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
         topLeft.backgroundColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+        self.addParallaxToView(vw: topLeft)
         self.view.addSubview(topLeft)
         
         topLeft.snp.makeConstraints { (make) in
@@ -46,6 +47,7 @@ class MainViewController: UIViewController {
         
         midLeft = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
         midLeft.backgroundColor = #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1)
+        self.addParallaxToView(vw: midLeft)
         self.view.addSubview(midLeft)
         
         midLeft.snp.makeConstraints { make in
@@ -57,6 +59,7 @@ class MainViewController: UIViewController {
         
         lowLeft = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
         lowLeft.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+        self.addParallaxToView(vw: lowLeft)
         self.view.addSubview(lowLeft)
         
         lowLeft.snp.makeConstraints { (make) in
@@ -67,6 +70,7 @@ class MainViewController: UIViewController {
         }
         
         topCenter = UIImageView(frame: CGRect(x: 0, y: 0, width: 110, height: 110))
+        self.addParallaxToView(vw: topCenter)
         self.view.addSubview(topCenter)
         
         topCenter.snp.makeConstraints { (make) in
@@ -87,6 +91,7 @@ class MainViewController: UIViewController {
         }
         
         lowCenter = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
+        self.addParallaxToView(vw: lowCenter)
         self.view.addSubview(lowCenter)
         
         lowCenter.snp.makeConstraints { (make) in
@@ -98,6 +103,7 @@ class MainViewController: UIViewController {
         }
         
         topRight = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
+        self.addParallaxToView(vw: topRight)
         self.view.addSubview(topRight)
         
         topRight.snp.makeConstraints { (make) in
@@ -109,6 +115,7 @@ class MainViewController: UIViewController {
         }
         
         midRight = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
+        self.addParallaxToView(vw: midRight)
         self.view.addSubview(midRight)
         
         midRight.snp.makeConstraints { (make) in
@@ -120,6 +127,7 @@ class MainViewController: UIViewController {
         }
         
         lowRight = UIImageView(frame: CGRect(x: 0, y: 0, width: ImageSize.imgHeightAndWidth.rawValue, height: ImageSize.imgHeightAndWidth.rawValue))
+        self.addParallaxToView(vw: lowRight)
         self.view.addSubview(lowRight)
         
         lowRight.snp.makeConstraints { (make) in
@@ -176,6 +184,22 @@ class MainViewController: UIViewController {
         
 
         // Do any additional setup after loading the view.
+    }
+    
+    func addParallaxToView(vw: UIView) {
+        let amount = 20
+        
+        let horizontal = UIInterpolatingMotionEffect(keyPath: "center.x", type: .tiltAlongHorizontalAxis)
+        horizontal.minimumRelativeValue = -amount
+        horizontal.maximumRelativeValue = amount
+        
+        let vertical = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
+        vertical.minimumRelativeValue = -amount
+        vertical.maximumRelativeValue = amount
+        
+        let group = UIMotionEffectGroup()
+        group.motionEffects = [horizontal, vertical]
+        vw.addMotionEffect(group)
     }
 
     override func didReceiveMemoryWarning() {
